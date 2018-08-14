@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/drawable"
+    xmlns:android1="http://schemas.android.com/apk/res/android">
+    <solid android1:color="#303030"/>
+
+
+    <stroke
+        android1:width="1dp"
+        android1:color="#3b3b3b"
+        />
+
+
+    <padding
+        android1:bottom="1dp"
+        android1:top="1dp"
+        android1:right="1dp"
+        android1:left="1dp"
+        />
+
+</shape>
