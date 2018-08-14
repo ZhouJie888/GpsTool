@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Bootstrap 实例 - 响应式的列重置</title>
+
+<link rel="stylesheet" href="bootstrap.css" type="text/css"></link>
+
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript" src="bootstrap.js"></script>
+
+<script type="text/javascript">
+  	function del(id){
+  		alert("删除");
+  	}
+  	
+  $(function(){
+
+  	$.getJSON("../util/user?opr=list",function(result){
+  		//alert(result);
+  		$.each(result,function(i){
+  		    var op = "<a href='' class='btn btn-primary' data-toggle='modal' data-target=''#myModal'> 编辑 </a> "+
+  		    "<a href='javascript:del("+this.uid+")' class='btn btn-danger'> 删除 </a>";
+  		    var s = "<tr><td>"+this.uid+"</td><td>"+this.uname+"</td><td>"+this.upwd+"</td><td>"+op+"</td></tr>";
+  			$("#WorkTable").append(s);
+  		});
+  		 
+  	});
+  	
+
+  	
+  	$("#submit").click(function(){
+  	  alert("submit");
+  	  x=$("#userform").serializeArray();
+  	  $.post("../util/user?opr=save",x,function(result){
+  	  	alert("保存成功");
+  	  });
+  	});
+  });
+  </script>
+
+
+</head>
+<body>
+
+
+
+	<div class="container">
+
+		<h1>
+			后台 <small> 用户管理 </small>
+		</h1>
+		<p>
+			<a href="" class="btn btn-success" data-toggle="modal"
+				data-target="#myModal"> <span class="glyphicon glyphicon-plus"></span> 新增 </a>
+		</p>
+
+		<table data-toggle="table" id="WorkTable"
+			class="table table-bordered table-striped table-condensed text-center ">
+			<thead>
+				<tr>
+					<th data-field="uid">用户Id</th>
+					<th data-field="uname">用户名</th>
+					<th data-field="upwd">密码</th>
+					<th></th>
+				</tr>
+			<thead>
+		</table>
+
+	</div>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h4 class="modal-title" id="myModalLabel">标题</h4>
+				</div>
+				<div class="modal-body">
+					<form id = "userform" action="">
+						<table
+							class="table table-bordered table-striped table-condensed text-center ">
+							<tr>
+								<td>用户名</td>
+								<td><input type="text">
+								</td>
+							</tr>
+
+							<tr>
+								<td>密码</td>
+								<td><input type="text">
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" id="submit" class="btn btn-primary">提交更改</button>
+				</div>
+			</div>
+			
+			<!-- /.modal-content -->
+		</div>
+		</div>
+</body>
+</html>

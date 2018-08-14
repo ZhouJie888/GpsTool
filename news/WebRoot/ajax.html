@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ajax.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+  
+  <script>
+  $(document).ready(function(){
+
+  	
+  	$("#commit").click(function(){
+  		/*
+  		var x = $("#form1").serializeArray();
+  		
+  		alert(x);
+  		$.each(x, function(i, field){
+  			alert(field.name);
+  		});
+  		*/
+  		//alert(user.value);
+  		 x=$("#form1").serializeArray();
+  		 alert(x);
+  		var queryString = $.param(x);
+    	 alert(queryString);
+  	});
+  	
+  });
+  
+  
+  </script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+    <ul id = "ul"></ul>
+    <form id="form1" action="">
+    	用户<input type="text" id="user" name="user"/>
+    	密码<input type="text" id="pwd" name="pwd"/>
+    	<input type="button" id="commit" value="test"/>
+    </form>
+    
+
+  </body>
+</html>

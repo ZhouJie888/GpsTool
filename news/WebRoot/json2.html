@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>json2.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+	
+  <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+  
+  <script>
+  	
+  	$(document).ready(function(){
+  	
+  	//在页面加载后，向后台请求用户的json数据
+  		$.ajax({
+  			"url":"getjson.jsp",
+  			"type":"GET",
+  			"dataType":"json",
+  			"success": process
+  		});
+  	
+  	//根据json数据动态创建表格行
+  		function process(data){
+  			$.each(data,function(i){
+				$("#table1").append("<tr><td>"+ this.name+ "</td><td>" + this.age+"</td><td>"+ this.pwd+ "</td></tr>");
+			});	
+	
+	  }
+  	});
+  	
+  </script>
+  </head>
+  
+  <body>
+    用户列表 <br>
+    <table id = "table1" border="1"></table>
+  </body>
+</html>

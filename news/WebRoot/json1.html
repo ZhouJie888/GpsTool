@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+	//定义一个用户对象
+	var user = {"name":"张三","age":30,"pwd":"000"};
+	$("#objectDiv").append("名称:" + user.name);
+	$("#objectDiv").append("<br/>年龄:" + user.age);
+	$("#objectDiv").append("<br/>密码:" + user.pwd);
+	
+	//数组
+	var array1 = ["中国","美国","俄罗斯"];
+	
+	//循环遍历数组
+	for(var i=0;i<array1.length;i++){
+		$("#sel").append("<option>"+array1[i]+"</option>");
+	}
+	$.each(array1,function(i){
+		$("#ul").append("<li>"+this+"</li>");
+	});
+	
+	//对象数组
+	var userArray = [
+		{"name":"张三","age":30,"pwd":"000"},
+		{"name":"李四","age":25,"pwd":"123"},
+		{"name":"王五","age":32,"pwd":"456"}];
+		
+	$.each(userArray,function(i){
+		$("#table1").append("<tr><td>"+ this.name+ "</td><td>" + this.age+"</td><td>"+ this.pwd+ "</td></tr>");
+	});	
+		
+});
+
+
+</script>
+</head>
+
+
+<body>
+  一、JSON对象属性: <div id="objectDiv" ></div>
+二、JSON数组:<select id="sel"></select>
+<ul id="ul"></ul>
+三、JSON对象数组 <table id="table1" border="1"></table>
+</body>
+</html>
